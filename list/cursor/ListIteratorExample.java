@@ -13,16 +13,18 @@ public class ListIteratorExample {
 
         ListIterator<Object> itr = l.listIterator();
 
+        boolean flag = true;
         while (itr.hasNext()) {
-            itr.add("a"); // but it's add this object or show this object after completing this iteration
-            // l.add("a");
-            if(itr.nextIndex() == 2)
-            {   
-                System.out.println(itr.previous());
-                break;
+            if (flag) {
+                flag = false;
+                itr.add("a"); // but it's add this object or show this object after completing this iteration
             }
-            System.out.println(itr.next()+" ");
+            
+            // l.add("a");
+           
+            System.out.println(itr.previous()+" "+itr.next()+" "+itr.next());
         }
         System.out.println(l);
+        System.out.println(itr.getClass().getName());
     }
 }
